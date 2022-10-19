@@ -14,32 +14,51 @@ popcntRD:
     // (STUDENT TODO) Code for popcntRD goes here.
     // Input parameter n is passed in X0.
     // Output value is returned in X0.
-    ldur     x9, #0x5555555555555555
+    //ldur     x9, #0x5555555555555555
+    movk    x9, #0x5555, lsl 48
+    movk    x9, #0x5555, lsl 32
+    movk    x9, #0x5555, lsl 16
+    movk    x9, #0x5555
     ands    x10, x0, x9
     lsr     x0, x0, #1
     ands    x0, x0, x9
     adds     x0, x0, x10
-    ldur     x9, #0x3333333333333333
+    movk    x9, #0x3333, lsl 48
+    movk    x9, #0x3333, lsl 32
+    movk    x9, #0x3333, lsl 16
+    movk    x9, #0x3333
     ands    x10, x0, x9
     lsr     x0, x0, #2
     ands    x0, x0, x9
     adds     x0, x0, x10
-    ldur     x9, #0x0F0F0F0F0F0F0F0F
+    movk    x9, #0x0F0F, lsl 48
+    movk    x9, #0x0F0F, lsl 32
+    movk    x9, #0x0F0F, lsl 16
+    movk    x9, #0x0F0F
     ands    x10, x0, x9 
     lsr     x0, x0, #4
     ands    x0, x0, x9
     adds     x0, x0, x10
-    ldur     x9, #0x00FF00FF00FF00FF
+    movk    x9, #0x00FF, lsl 48
+    movk    x9, #0x00FF, lsl 32
+    movk    x9, #0x00FF, lsl 16
+    movk    x9, #0x00FF
     ands    x10, x0, x9
     lsr     x0, x0, #8
     ands    x0, x0, x9
     adds     x0, x0, x10
-    ldur     x9, #0x0000FFFF0000FFFF
+   movk    x9, #0x0000, lsl 48
+    movk    x9, #0xFFFF, lsl 32
+    movk    x9, #0x0000, lsl 16
+    movk    x9, #0xFFFF
     ands    x10, x0, x9
     lsr     x0, x0, #16
     ands    x0, x0, x9
     adds     x0, x0, x10
-    ldur     x9, #0x000000000000007F
+    movk    x9, #0x0000, lsl 48
+    movk    x9, #0x0000, lsl 32
+    movk    x9, #0x0000, lsl 16
+    movk    x9, #0x007F
     ands    x0, x0, x9
     ret
     .size   popcntRD, .-popcntRD
