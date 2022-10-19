@@ -1,5 +1,5 @@
   // This is the general format of an assembly-language program file.
-    // Written by: REPLACE THIS WITH YOUR NAME AND UT EID
+    // Written by: Ann Liu al8703
     .arch armv8-a
     .text
     // Code for all functions go here.
@@ -14,6 +14,33 @@ popcntRD:
     // (STUDENT TODO) Code for popcntRD goes here.
     // Input parameter n is passed in X0.
     // Output value is returned in X0.
+    ldur     x9, #0x5555555555555555
+    ands    x10, x0, x9
+    lsr     x0, x0, #1
+    ands    x0, x0, x9
+    adds     x0, x0, x10
+    ldur     x9, #0x3333333333333333
+    ands    x10, x0, x9
+    lsr     x0, x0, #2
+    ands    x0, x0, x9
+    adds     x0, x0, x10
+    ldur     x9, #0x0F0F0F0F0F0F0F0F
+    ands    x10, x0, x9 
+    lsr     x0, x0, #4
+    ands    x0, x0, x9
+    adds     x0, x0, x10
+    ldur     x9, #0x00FF00FF00FF00FF
+    ands    x10, x0, x9
+    lsr     x0, x0, #8
+    ands    x0, x0, x9
+    adds     x0, x0, x10
+    ldur     x9, #0x0000FFFF0000FFFF
+    ands    x10, x0, x9
+    lsr     x0, x0, #16
+    ands    x0, x0, x9
+    adds     x0, x0, x10
+    ldur     x9, #0x000000000000007F
+    ands    x0, x0, x9
     ret
     .size   popcntRD, .-popcntRD
     // ... and ends with the .size above this line.
