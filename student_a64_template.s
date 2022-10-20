@@ -87,10 +87,10 @@ str_len:
     // Input parameter s is passed in X0.
     // Output value is returned in X0.
     movz x9, #0
+    movz x10, #0
     while:
-    movz x7, #0
-    stur x0, [x7]
-    adds x7, x7, #0
+    ldur x10, [x0,#0]
+    adds x10, x10, #0
     b.eq .L1
     adds x0, x0, #1
     adds x9, x9, #1
