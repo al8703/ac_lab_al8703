@@ -93,7 +93,7 @@ str_len:
     movk x2, #0x0000, lsl 48
     movk x2, #0x0000, lsl 32
     movk x2, #0x0000, lsl 16
-    movk x2, #0x00FF,
+    movk x2, #0x00FF
     while:
     adds x2, x2, #0
     b.eq .L1
