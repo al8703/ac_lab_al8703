@@ -89,7 +89,7 @@ str_len:
    // movz x1, #0
    // movz x2, #0
    movz x3, #0
-   mvn x3, x0
+   stur x0, [x3]
     while:
     ldur x2, [x3,#0]
     adds x2, x2, #0
