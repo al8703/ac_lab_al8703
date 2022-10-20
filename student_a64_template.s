@@ -92,8 +92,8 @@ str_len:
     adds x9, x9, #0
     b.eq .L1
     adds x0, x0, #1
-    ldur x10 [x9, #8]
-    stur x9 [x10,#0]
+    ldur x10, [x9, #8]
+    stur x9, [x10,#0]
     .L1:
     ret
     .size   str_len, .-str_len
