@@ -77,18 +77,35 @@ BCD_to_long:
     movz x1, #0
     movz x2, #0
     movz x3, #0
+    movz x4, #0
+    movz x9, #0
+    movz x10, #0
+    movz x11, #0
+    movk    x11, #0xFFFF, lsl 48
+    movk    x11, #0xFFFF, lsl 32
+    movk    x11, #0xFFFF, lsl 16
+    movk    x11, #0xFFFF
     movk    x9, #0xF000, lsl 48
     movk    x9, #0x0000, lsl 32
     movk    x9, #0x0000, lsl 16
     movk    x9, #0x0000
+
     for:
-    ands x2, x0, x9
-    lsr x2, x2, #56
-    //add x3, x3, x2
+    ands x9, x0, x9
+    lrs x9, x9, #57
+    subs x11, x3, #15
+    b.eq L2.
+    lsl x0, x0, #4
+    lsl x10, x10, #3
+    lsl x9, x9, #1
+    adds x1, x10, x9
+    adds x3, x3, #1
+    b for
 
-
-
-
+    L2.
+    adds x1, x1, x9   
+     movz x0, #0
+     ands x0, x1, x11 
     ret
     .size   BCD_to_long, .-BCD_to_long
     // ... and ends with the .size above this line.
