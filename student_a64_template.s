@@ -88,9 +88,9 @@ str_len:
     // Output value is returned in X0.
     movz x9, #0
     while:
-    movz x10, #0
-    stur x10, [x0]
-    adds x10, x10, #0
+    movz x7, #0
+    stur x7, [x0]
+    adds x7, x7, #0
     b.eq .L1
     adds x0, x0, #1
     adds x9, x9, #1
