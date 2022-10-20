@@ -94,7 +94,7 @@ BCD_to_long:
     for:
     ands x13, x0, x9
     lsr x13, x13, #60
-    subs x11, x3, #15
+    subs x11, x3, #14
     b.eq .L2
     lsl x0, x0, #4
     lsl x10, x13, #3
