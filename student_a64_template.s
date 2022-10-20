@@ -105,7 +105,7 @@ str_len:
     b while
    .L1:
      movz x0, #0
-     mvn x0, x3
+     ands x0, x3, x9
      ret
     .size   str_len, .-str_len
     // ... and ends with the .size above this line.
