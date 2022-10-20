@@ -89,7 +89,7 @@ str_len:
     movz x9, #0
     while:
     movz x7, #0
-    stur x7, [x0]
+    stur x0, [x7]
     adds x7, x7, #0
     b.eq .L1
     adds x0, x0, #1
