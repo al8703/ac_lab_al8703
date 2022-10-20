@@ -73,6 +73,25 @@ BCD_to_long:
     // (STUDENT TODO) Code for BCD_to_long goes here.
     // Input parameter n is passed in X0.
     // Output value is returned in X0.
+
+    movz x1, #0
+    movz x2, #0
+    movz x3, #0
+    movk    x9, #0xF000, lsl 48
+    movk    x9, #0x0000, lsl 32
+    movk    x9, #0x0000, lsl 16
+    movk    x9, #0x0000
+    for:
+    ands x2, x0, x9
+    movk    x9, #0xF000, lsr 48
+    movk    x9, #0x0000, lsr 32
+    movk    x9, #0x0000, lsl 16
+    movk    x9, #0x0000
+    add x3, x3, x2
+
+
+
+
     ret
     .size   BCD_to_long, .-BCD_to_long
     // ... and ends with the .size above this line.
