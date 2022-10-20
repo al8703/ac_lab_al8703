@@ -87,7 +87,7 @@ str_len:
     // Input parameter s is passed in X0.
     // Output value is returned in X0.
     movz x9, #0
-    ldur x9, [x0]
+    mvn x9, x0
     movz x0, #0
     while_1:
     ldurb w10,[x9]
