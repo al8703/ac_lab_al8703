@@ -86,6 +86,7 @@ str_len:
     // (STUDENT TODO) Code for str_len goes here.
     // Input parameter s is passed in X0.
     // Output value is returned in X0.
+    movz x9, #0
     ldur x9, [x0]
     movz x0, #0
     while_1:
