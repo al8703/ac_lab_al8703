@@ -97,7 +97,7 @@ str_len:
    .L1:
    movz x0, #0
    mvn x0, x1
-    retgit 
+    ret
     .size   str_len, .-str_len
     // ... and ends with the .size above this line.
 
