@@ -81,6 +81,7 @@ BCD_to_long:
     movz x9, #0
     movz x10, #0
     movz x11, #0
+    movz x13, #0
     movk    x11, #0xFFFF, lsl 48
     movk    x11, #0xFFFF, lsl 32
     movk    x11, #0xFFFF, lsl 16
@@ -91,14 +92,14 @@ BCD_to_long:
     movk    x9, #0x0000
 
     for:
-    ands x9, x0, x9
-    lsr x9, x9, #57
+    ands x13, x0, x9
+    lsr x13, x13, #57
     subs x11, x3, #15
     b.eq .L2
     lsl x0, x0, #4
-    lsl x10, x10, #3
-    lsl x9, x9, #1
-    adds x1, x10, x9
+    lsl x10, x13, #3
+    lsl x13, x13, #1
+    adds x1, x10, x13
     adds x3, x3, #1
     b for
 
