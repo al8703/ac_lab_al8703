@@ -90,7 +90,7 @@ str_len:
   //  mvn x9, x0
     movz x9, #0
     while_1:
-    ldurb x10,[x0]
+    ldur x10,[x0]
     adds x10, x10, #0
     b.eq .L1
     adds x0, x0, #1
