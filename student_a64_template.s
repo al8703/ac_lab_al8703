@@ -90,10 +90,12 @@ str_len:
    // movz x2, #0
    movz x3, #0
     ldur x2, [x0] 
-    movk x2, #0x0000, lsl 48
-    movk x2, #0x0000, lsl 32
-    movk x2, #0x0000, lsl 16
-    movk x2, #0x00FF
+    movz x9, #0
+    movk x9, #0x0000, lsl 48
+    movk x9, #0x0000, lsl 32
+    movk x9, #0x0000, lsl 16
+    movk x9, #0x00FF
+    ands x2, x2,x9
     while:
     adds x2, x2, #0
     b.eq .L1
