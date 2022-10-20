@@ -89,12 +89,13 @@ str_len:
     // movz x1, #0
    // movz x2, #0
    movz x3, #0
-    while:
     ldur x2, [x0]
+    while:
     adds x2, x2, #0
     b.eq .L1
     adds x0, x0, #1
     adds x3, x3, #1
+    ldur x2, [x0]
    .L1:
    movz x0, #0
    mvn x0, x3
