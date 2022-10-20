@@ -100,7 +100,7 @@ str_len:
     adds x0, x0, #1
     adds x3, x3, #1
     ldur x2, [x0]
-    b .while
+    b while
    .L1:
      movz x0, #0
      mvn x0, x3
