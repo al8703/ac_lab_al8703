@@ -92,9 +92,9 @@ BCD_to_long:
 
     for:
     ands x9, x0, x9
-    lrs x9, x9, #57
+    lsr x9, x9, #57
     subs x11, x3, #15
-    b.eq L2.
+    b.eq .L2
     lsl x0, x0, #4
     lsl x10, x10, #3
     lsl x9, x9, #1
@@ -102,7 +102,7 @@ BCD_to_long:
     adds x3, x3, #1
     b for
 
-    L2.
+    .L2:
     adds x1, x1, x9   
      movz x0, #0
      ands x0, x1, x11 
