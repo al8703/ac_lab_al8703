@@ -83,7 +83,7 @@ BCD_to_long:
     movk    x9, #0x0000
     for:
     ands x2, x0, x9
-    lrs x2, x2 #56
+    lsr x2, x2 #56
     //add x3, x3, x2
 
 
