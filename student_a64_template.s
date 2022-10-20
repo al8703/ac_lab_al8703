@@ -83,11 +83,8 @@ BCD_to_long:
     movk    x9, #0x0000
     for:
     ands x2, x0, x9
-    movk    x9, #0xF000, lsr 48
-    movk    x9, #0x0000, lsr 32
-    movk    x9, #0x0000, lsl 16
-    movk    x9, #0x0000
-    add x3, x3, x2
+    lrs x2, x2 #56
+    //add x3, x3, x2
 
 
 
