@@ -90,11 +90,11 @@ BCD_to_long:
     movk    x9, #0x0000, lsl 32
     movk    x9, #0x0000, lsl 16
     movk    x9, #0x0000
-    lsl x0, x0, #4
+    //lsl x0, x0, #4
     for:
     ands x13, x0, x9
     lsr x13, x13, #60
-    subs x11, x3, #14
+    subs x11, x3, #15
     b.eq .L2
     lsl x0, x0, #4
     lsl x10, x13, #3
