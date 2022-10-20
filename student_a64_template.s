@@ -86,10 +86,10 @@ str_len:
     // (STUDENT TODO) Code for str_len goes here.
     // Input parameter s is passed in X0.
     // Output value is returned in X0.
-    ldur   x9, [x0, #0]
+    stur   x9, [x0, #0]
     movk x0, #1
     while_1:
-    adds x9, x9, #0
+    adds x9, x9, #0pri
     b.eq .L1
     adds x0, x0, #1
     ldur x10, [x9, #8]
