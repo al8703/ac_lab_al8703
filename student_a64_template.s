@@ -89,7 +89,7 @@ str_len:
     stur   x9, [x0, #0]
     movk x0, #1
     while_1:
-    adds x9, x9, #0pri
+    adds x9, x9, #0
     b.eq .L1
     adds x0, x0, #1
     ldur x10, [x9, #8]
