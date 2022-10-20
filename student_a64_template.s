@@ -89,8 +89,8 @@ str_len:
     ldur x9, [x0]
     movz x0, #0
     while_1:
-    ldurb x10,[x9]
-    adds x10, x10, #0
+    ldurb w10,[x9]
+    adds w10, w10, #0
     b.eq .L1
     adds x0, x0, #1
     adds x9, x9, #1
