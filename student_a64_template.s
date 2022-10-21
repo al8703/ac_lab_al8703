@@ -80,12 +80,11 @@ BCD_to_long:
     movz x4, #0
     movz x9, #0
     movz x10, #0
-    movz x11, #0
     movz x13, #0
-    movk    x11, #0xFFFF, lsl 48
-    movk    x11, #0xFFFF, lsl 32
-    movk    x11, #0xFFFF, lsl 16
-    movk    x11, #0xFFFF
+    movk    x4, #0xFFFF, lsl 48
+    movk    x4, #0xFFFF, lsl 32
+    movk    x4, #0xFFFF, lsl 16
+    movk    x4, #0xFFFF
     movk    x9, #0xF000, lsl 48
     movk    x9, #0x0000, lsl 32
     movk    x9, #0x0000, lsl 16
