@@ -128,7 +128,8 @@ str_len:
     // (STUDENT TODO) Code for str_len goes here.
     // Input parameter s is passed in X0.
     // Output value is returned in X0.
-    
+    // movz x1, #0
+   // movz x2, #0
     movz x3, #0
     movz x9, #0
     movz x4, #0
