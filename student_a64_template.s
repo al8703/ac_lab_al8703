@@ -94,7 +94,7 @@ BCD_to_long:
     ands x13, x0, x9
     lsr x13, x13, #60
     subs x2,x13,#10
-    b.le .L3
+    b.ge .L3
     subs x11, x3, #15
     b.eq .L2
     lsl x0, x0, #4
