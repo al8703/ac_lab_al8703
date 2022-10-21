@@ -132,6 +132,11 @@ str_len:
    // movz x2, #0
     movz x3, #0
     movz x9, #0
+    movz x4, #0
+    movk    x4, #0xFFFF, lsl 48
+    movk    x4, #0xFFFF, lsl 32
+    movk    x4, #0xFFFF, lsl 16
+    movk    x4, #0xFFFF
     movk x9, #0x0000, lsl 48
     movk x9, #0x0000, lsl 32
     movk x9, #0x0000, lsl 16
@@ -147,7 +152,7 @@ str_len:
     b while
    .L1:
      movz x0, #0
-     ands x0, x3, x9
+     ands x0, x3, x4
      ret
     .size   str_len, .-str_len
     // ... and ends with the .size above this line.
