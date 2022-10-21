@@ -141,18 +141,18 @@ str_len:
     movk x9, #0x0000, lsl 32
     movk x9, #0x0000, lsl 16
     movk x9, #0x00FF
-    while:
-    ldur x2, [x0] 
-    ands x2, x2,x9
-    adds x2, x2, #0
-    b.eq .L1
-    adds x0, x0, #1
-    adds x3, x3, #1
-    //ldur x2, [x0]
-    b while
-   .L1:
-     movz x0, #0
-     ands x0, x3, x4
+   // while:
+   // ldur x2, [x0] 
+  //  ands x2, x2,x9
+  //  adds x2, x2, #0
+  //  b.eq .L1
+  //  adds x0, x0, #1
+  //  adds x3, x3, #1
+   
+ //   b while
+ //  .L1:
+   //  movz x0, #0
+  //   ands x0, x3, x4
      ret
     .size   str_len, .-str_len
     // ... and ends with the .size above this line.
