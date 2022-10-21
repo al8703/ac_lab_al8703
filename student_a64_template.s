@@ -96,6 +96,8 @@ BCD_to_long:
     subs x11, x3, #15
     b.eq .L2
     lsl x0, x0, #4
+    adds x10, x1, x13
+    adds x13, x1, x13
     lsl x10, x13, #3
     lsl x13, x13, #1
     adds x1, x10, x13
