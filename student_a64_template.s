@@ -107,7 +107,7 @@ BCD_to_long:
     .L2:
     adds x1, x1, x13   
      movz x0, #0
-     ands x0, x1, x11 
+     ands x0, x1, x4 
     ret
     .size   BCD_to_long, .-BCD_to_long
     // ... and ends with the .size above this line.
