@@ -198,7 +198,7 @@ unicode_to_UTF8:
     movk x11, #0x0000, lsl 16
     movk x11, #0x007F
     ands x11, x0, x11
-    stur x11, [x1]
+    sturb w11, [x1]
     ldur x2, [x1]
     ret
 
@@ -207,7 +207,7 @@ unicode_to_UTF8:
     lsr x10, x10, #48
     ands x10, x0, x10
     adds x10, x10, #0xC0
-    stur x10, [x1]
+    sturb w10, [x1]
     ldur x2, [x1]
     adds x1, x1, #1
     movz x10, #0
@@ -215,7 +215,7 @@ unicode_to_UTF8:
     lsr x10, x10, #48
     ands x10, x0, x10
     adds x10, x10, #0x80
-    stur x10, [x1]
+    sturb w10, [x1]
     ldur x2, [x1]
     ret
 
@@ -227,7 +227,7 @@ unicode_to_UTF8:
     ands x11, x0, x11
     lsr x11, x11, #12
     adds x11, x11, #0xE0
-    stur x11, [x1]
+    sturb w11, [x1]
     ldur x2, [x1]
     adds x1, x1, #1
     
@@ -238,14 +238,14 @@ unicode_to_UTF8:
     ands x11, x0, x11
     lsr x11, x11, #6
     adds x11, x11, #0x80
-    stur x11, [x1]
+    sturb w11, [x1]
     ldur x2, [x1]
     adds x1, x1, #1
 
     movk x11, #0x3F
     ands x11, x0, x11
     adds x11, x11, #0x80
-    stur x11, [x1]
+    sturb w11, [x1]
     ldur x2, [x1]
     ret
 
@@ -257,7 +257,7 @@ unicode_to_UTF8:
     ands x11, x0, x11
     lsr x11, x11, #18
     adds x11, x11, #0xF0
-    stur x11, [x1]
+    sturb w11, [x1]
     ldur x2, [x1]
     adds x1, x1, #1
     
@@ -269,7 +269,7 @@ unicode_to_UTF8:
     ands x11, x0, x11
     lsr x11, x11, #12
     adds x11, x11, #0x80
-    stur x11, [x1]
+    sturb w11, [x1]
     ldur x2, [x1]
     adds x1, x1, #1
   
@@ -281,7 +281,7 @@ unicode_to_UTF8:
     ands x11, x0, x11
     lsr x11, x11, #6
     adds x11, x11, #0x80
-    stur x11, [x1]
+    sturb w11, [x1]
     ldur x2, [x1]
     adds x1, x1, #1
    
@@ -289,7 +289,7 @@ unicode_to_UTF8:
     movk x11, #0x3F
     ands x11, x0, x11
     adds x11, x11, #0x80
-    stur x11, [x1]
+    sturb w11, [x1]
      ldur x2, [x1]
     subs x1, x1, #3
    
@@ -302,7 +302,7 @@ unicode_to_UTF8:
     .for:
     subs x12, x9, #5
     b.eq .end
-    stur x11, [x1]
+    sturb w11, [x1]
      ldur x2, [x1]
     adds x1,x1,#1
     adds x9,x9,#1
