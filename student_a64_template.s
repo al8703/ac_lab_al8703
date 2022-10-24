@@ -250,8 +250,7 @@ unicode_to_UTF8:
     stur x11, [x1]
     adds x1, x1, #1
 
-    movk x11, #0x003F
-    lsr x11, x11, #48
+    movk x11, #0x3F
     ands x11, x0, x11
     adds x11, x11, #0x80
     stur x11, [x1]
