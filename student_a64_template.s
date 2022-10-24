@@ -232,7 +232,7 @@ unicode_to_UTF8:
     adds x9,x9,#1
     b for
 
-   . end:
+   .end:
     ret
 
 
