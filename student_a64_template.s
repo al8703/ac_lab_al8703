@@ -172,7 +172,7 @@ unicode_to_UTF8:
     movz x11, #0
     movz x2, #0
     movz x12, #0
-    sub
+
     subs x9, x0, #0x007F
     b.le .1B
     subs x9, x0, #0x07FF
