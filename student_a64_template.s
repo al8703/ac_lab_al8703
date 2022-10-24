@@ -277,6 +277,7 @@ unicode_to_UTF8:
     ands x11, x0, x11
     adds x11, x11, #0x80
     stur x11, [x1]
+    subs x1, x1, #3
     ret
 
     .5B:
@@ -293,6 +294,7 @@ unicode_to_UTF8:
     b .for
 
    .end:
+ 
     ret
 
 
