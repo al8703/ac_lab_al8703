@@ -171,7 +171,6 @@ unicode_to_UTF8:
     movz x9, #0
     movz x11, #0
     movz x2, #0
-    // adds x1, x1, #1
     subs x9, x0, #0x007F
     b.le .1B
     subs x9, x0, #0x07FF
@@ -188,7 +187,8 @@ unicode_to_UTF8:
     movk x11, #0xFFFF
     subs x9, x0, x11
     b.le .4B
-    ret
+    b .5B
+
 
     .1B:
      movk x11, #0x0000, lsl 48
@@ -218,6 +218,23 @@ unicode_to_UTF8:
 
     .4B:
     ret
+
+    .5B:
+    movz x12, #0
+    movz x9, #1
+    movz x11, #0
+    for:
+    subs x12, x9, #5
+    b.eq .end
+    ldur x2, [x1]
+    stur x11, [x1]
+    adds x1,x1,#1
+    adds x9,x9,#1
+    b for
+
+   . end:
+    ret
+
 
     .size   unicode_to_UTF8, .-unicode_to_UTF8
     // ... and ends with the .size above this line.
