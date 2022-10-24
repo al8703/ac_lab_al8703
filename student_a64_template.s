@@ -223,7 +223,7 @@ unicode_to_UTF8:
     movz x12, #0
     movz x9, #1
     movz x11, #0
-    for:
+    .for:
     subs x12, x9, #5
     b.eq .end
     ldur x2, [x1]
