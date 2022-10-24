@@ -224,34 +224,34 @@ unicode_to_UTF8:
     movk x11, #0x0000, lsl 32
     movk x11, #0x001C, lsl 16
     movk x11, #0x0000
-    ands x10, x0, x10
-    adds x10, x10, #0xF0
-    stur x10, [x1]
+    ands x11, x0, x11
+    adds x11, x11, #0xF0
+    stur x11, [x1]
     adds x1, x1, #1
 
     movk x11, #0x0000, lsl 48
     movk x11, #0x0000, lsl 32
     movk x11, #0x0003, lsl 16
     movk x11, #0xF000
-    ands x10, x0, x10
-    adds x10, x10, #0x80
-    stur x10, [x1]
+    ands x11, x0, x11
+    adds x11, x11, #0x80
+    stur x11, [x1]
     adds x1, x1, #1
 
     movk x11, #0x0000, lsl 48
     movk x11, #0x0000, lsl 32
     movk x11, #0x0000, lsl 16
     movk x11, #0x0FC0
-    ands x10, x0, x10
-    adds x10, x10, #0x80
-    stur x10, [x1]
+    ands x11, x0, x11
+    adds x11, x11, #0x80
+    stur x11, [x1]
     adds x1, x1, #1
 
-    movk x10, #0x003F
-    lsr x10, x10, #48
-    ands x10, x0, x10
-    adds x10, x10, #0x80
-    stur x10, [x1]
+    movk x11, #0x003F
+    lsr x11, x11, #48
+    ands x11, x0, x11
+    adds x11, x11, #0x80
+    stur x11, [x1]
     ret
 
     .5B:
