@@ -349,6 +349,7 @@ gcd_rec:
     b.eq .zero
     adds x3, x1, #0
     b.eq .zero
+    b .div
 
     .zero:
     movz x0, #0
