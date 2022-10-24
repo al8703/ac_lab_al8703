@@ -199,6 +199,7 @@ unicode_to_UTF8:
     movk x11, #0x007F
     ands x11, x0, x11
     stur x11, [x1]
+    ldur x2, [x1]
     ret
 
     .2B:
@@ -207,6 +208,7 @@ unicode_to_UTF8:
     ands x10, x0, x10
     adds x10, x10, #0xC0
     stur x10, [x1]
+    ldur x2, [x1]
     adds x1, x1, #1
     movz x10, #0
     movk x10, #0x003F
@@ -214,6 +216,7 @@ unicode_to_UTF8:
     ands x10, x0, x10
     adds x10, x10, #0x80
     stur x10, [x1]
+    ldur x2, [x1]
     ret
 
     .3B:
@@ -225,6 +228,7 @@ unicode_to_UTF8:
     lsr x11, x11, #12
     adds x11, x11, #0xE0
     stur x11, [x1]
+    ldur x2, [x1]
     adds x1, x1, #1
     
     movk x11, #0x0000, lsl 48
@@ -235,12 +239,14 @@ unicode_to_UTF8:
     lsr x11, x11, #6
     adds x11, x11, #0x80
     stur x11, [x1]
+    ldur x2, [x1]
     adds x1, x1, #1
 
     movk x11, #0x3F
     ands x11, x0, x11
     adds x11, x11, #0x80
     stur x11, [x1]
+    ldur x2, [x1]
     ret
 
     .4B:
@@ -296,8 +302,8 @@ unicode_to_UTF8:
     .for:
     subs x12, x9, #5
     b.eq .end
-    ldur x2, [x1]
     stur x11, [x1]
+     ldur x2, [x1]
     adds x1,x1,#1
     adds x9,x9,#1
     b .for
