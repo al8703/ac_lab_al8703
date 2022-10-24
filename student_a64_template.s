@@ -197,7 +197,7 @@ unicode_to_UTF8:
     movk x11, #0x00FF
     ldur x2, [x1]
     ands x2, x0, x11
-    stur x2 [x1]
+    stur x2, [x1]
     ret
 
     .2B:
