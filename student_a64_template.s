@@ -217,6 +217,30 @@ unicode_to_UTF8:
     ret
 
     .3B:
+    movk x11, #0x0000, lsl 48
+    movk x11, #0x0000, lsl 32
+    movk x11, #0x0000, lsl 16
+    movk x11, #0xF000
+    ands x11, x0, x11
+    lsr x11, x11, #12
+    adds x11, x11, #0xE0
+    stur x11, [x1]
+    adds x1, x1, #1
+    
+    movk x11, #0x0000, lsl 48
+    movk x11, #0x0000, lsl 32
+    movk x11, #0x0000, lsl 16
+    movk x11, #0x0FC0
+    ands x11, x0, x11
+    lsr x11, x11, #6
+    adds x11, x11, #0x80
+    stur x11, [x1]
+    adds x1, x1, #1
+
+    movk x11, #0x3F
+    ands x11, x0, x11
+    adds x11, x11, #0x80
+    stur x11, [x1]
     ret
 
     .4B:
