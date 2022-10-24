@@ -205,6 +205,12 @@ unicode_to_UTF8:
     stur x10, [x1]
     ret
 
+    .3B:
+    ret
+
+    .4B:
+    ret
+
     .size   unicode_to_UTF8, .-unicode_to_UTF8
     // ... and ends with the .size above this line.
 
