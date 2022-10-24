@@ -169,21 +169,30 @@ unicode_to_UTF8:
     // There are no output values.
     movz x10, #0
     movz x9, #0
-    SUBS x9, x0, #0x007F
-    b.le .L1
-    SUBS x9, x0, #0x07FF
-    b.le .L2
-    SUBS x9, x0, #0xFFFF
-    b.le .L3
-    SUBS x9, x0, #0x10FFFF
-    b.le .L4
+    movz x11, #0
+    subs x9, x0, #0x007F
+    b.le .1B
+    subs x9, x0, #0x07FF
+    b.le .2B
+    movk x11, #0x0000, lsl 48
+    movk x11, #0x0000, lsl 32
+    movk x11, #0x0000, lsl 16
+    movk x11, #0xFFFF
+    subs x9, x0, x11
+    b.le .3B
+    movk x11, #0x0000, lsl 48
+    movk x11, #0x0000, lsl 32
+    movk x11, #0x0010, lsl 16
+    movk x11, #0xFFFF
+    subs x9, x0, x11
+    b.le .4B
     ret
 
-    .L1:
+    .1B:
     stur x0, [x1]
     ret
 
-    .L2:
+    .2B:
     movk x10, #0x07C0, lsl 48
     ands x10, x0, x10
     adds x10, x10, #0xC0
