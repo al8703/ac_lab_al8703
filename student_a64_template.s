@@ -189,7 +189,7 @@ unicode_to_UTF8:
     ret
 
     .1B:
-    stur x0, [x1]
+    sturb x0, [x1]
     ret
 
     .2B:
