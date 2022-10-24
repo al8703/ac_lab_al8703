@@ -230,7 +230,7 @@ unicode_to_UTF8:
     stur x11, [x1]
     adds x1,x1,#1
     adds x9,x9,#1
-    b for
+    b .for
 
    .end:
     ret
