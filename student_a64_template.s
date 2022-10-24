@@ -200,6 +200,7 @@ unicode_to_UTF8:
     ands x11, x0, x11
     sturb w11, [x1]
     ldur x2, [x1]
+    adds x1,x1,#1
     movz x12, #0
     movz x9, #1
     movz x11, #0
