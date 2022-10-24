@@ -201,13 +201,15 @@ unicode_to_UTF8:
     ret
 
     .2B:
-    movk x10, #0x07C0, lsl 48
+    movk x10, #0x07C0
+    lrs x10, #48
     ands x10, x0, x10
     adds x10, x10, #0xC0
     stur x10, [x1]
     adds x1, x1, #1
     movz x10, #0
-    movk x10, #0x003F, lsl 48
+    movk x10, #0x003F
+    lrs x10, #48
     ands x10, x0, x10
     adds x10, x10, #0x80
     stur x10, [x1]
@@ -217,6 +219,12 @@ unicode_to_UTF8:
     ret
 
     .4B:
+    movk x10, #0xE000
+    lrs x10, #48
+    ands x10, x0, x10
+    adds x10, x10, #0x78
+    stur x10, [x1]
+    adds x1, x1, #1
     ret
 
     .5B:
