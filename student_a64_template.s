@@ -251,7 +251,7 @@ unicode_to_UTF8:
     ands x11, x0, x11
     lsr x11, x11, #18
     adds x11, x11, #0xF0
-    sturb x11, [x1]
+    sturb w11, [x1]
     adds x1, x1, #1
 
     movk x11, #0x0000, lsl 48
@@ -261,7 +261,7 @@ unicode_to_UTF8:
     ands x11, x0, x11
     lsr x11, x11, #12
     adds x11, x11, #0x80
-    sturb x11, [x1]
+    sturb w11, [x1]
     adds x1, x1, #1
 
     movk x11, #0x0000, lsl 48
@@ -271,13 +271,13 @@ unicode_to_UTF8:
     ands x11, x0, x11
     lsr x11, x11, #6
     adds x11, x11, #0x80
-    sturb x11, [x1]
+    sturb w11, [x1]
     adds x1, x1, #1
 
     movk x11, #0x3F
     ands x11, x0, x11
     adds x11, x11, #0x80
-    sturb x11, [x1]
+    sturb w11, [x1]
     subs x1, x1, #3
     ret
 
