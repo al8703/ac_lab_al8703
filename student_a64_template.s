@@ -195,10 +195,9 @@ unicode_to_UTF8:
      movk x11, #0x0000, lsl 48
     movk x11, #0x0000, lsl 32
     movk x11, #0x0000, lsl 16
-    movk x11, #0x00FF
-    ldur x2, [x1]
-    ands x2, x0, x11
-    stur x2, [x1]
+    movk x11, #0x007F
+    ands x11, x1, x11
+    stur x11, [x1]
     ret
 
     .2B:
