@@ -171,6 +171,7 @@ unicode_to_UTF8:
     movz x9, #0
     movz x11, #0
     movz x2, #0
+    movz x12, #0
     subs x9, x0, #0x007F
     b.le .1B
     subs x9, x0, #0x07FF
@@ -222,9 +223,29 @@ unicode_to_UTF8:
     movk x10, #0xE000
     lsr x10, x10, #48
     ands x10, x0, x10
-    adds x10, x10, #0x78
+    adds x10, x10, #0xF0
     stur x10, [x1]
     adds x1, x1, #1
+
+    movk x10, #0xFC00
+    lsr x10, x10, #46
+    ands x10, x0, x10
+    adds x10, x10, #0x80
+    stur x10, [x1]
+    adds x1, x1, #1
+
+    movk x10, #0x0FC0
+    lsr x10, x10, #48
+    ands x10, x0, x10
+    adds x10, x10, #0x80
+    stur x10, [x1]
+    adds x1, x1, #1
+
+    movk x10, #0x003F
+    lsr x10, x10, #48
+    ands x10, x0, x10
+    adds x10, x10, #0x80
+    stur x10, [x1]
     ret
 
     .5B:
