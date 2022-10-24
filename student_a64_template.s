@@ -341,6 +341,51 @@ gcd_rec:
     // (STUDENT TODO) Code for gcd_rec goes here.
     // Input parameter m is passed in X0; input parameter n is passed in X1.
     // Output value is returned in X0.
+
+    movz x2, #0
+    movz x3, #0
+    movk x9, #0
+    adds x3, x0, #0
+    b.eq .zero
+    adds x3, x1, #0
+    b.eq .zero
+
+    .zero:
+    movz x0, #0
+    ret
+
+    .div:
+    subs x0, x0, x1
+    b.eq .fin1
+    b.lt .addB1
+    adds x9, x9, #1
+    b .div
+
+    .addB1:
+    adds x0, x0, x1
+    b .div2
+
+    .div2:
+    subs x1, x1, x0
+    b.eq .fin2
+    b.lt .addB
+    adds x9, x9, #1
+    b .div2
+
+    .addB:
+    adds x1, x1, x0
+    b .div
+
+    .fin1:
+    movz x0, #0
+    ands x0, x0, x1
+    ret
+    
+   .fin2:  
+    ret
+
+    
+    
     ret
     .size   gcd_rec, .-gcd_rec
     // ... and ends with the .size above this line.
