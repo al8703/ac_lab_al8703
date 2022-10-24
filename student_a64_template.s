@@ -167,7 +167,35 @@ unicode_to_UTF8:
     // (STUDENT TODO) Code for unicode_to_UTF8 goes here.
     // Input parameter n is passed in X0; input parameter c is passed in X1.
     // There are no output values.
+    movz x10, #0
+    movz x9, #0
+    SUBS x9, x0, #0x007F
+    b.le .L1
+    SUBS x9, x0, #0x07FF
+    b.le .L2
+    SUBS x9, x0, #0xFFFF
+    b.le .L3
+    SUBS x9, x0, #0x10FFFF
+    b.le .L4
     ret
+
+    .L1:
+    stur x0, [x1]
+    ret
+
+    .L2:
+    movk x10, #0x07C0, lsl 48
+    ands x10, x0, x10
+    adds x10, x10, #0xC0
+    stur x10, [x1]
+    adds x1, x1, #1
+    movz x10, #0
+    movk x10, #0x003F, lsl 48
+    ands x10, x0, x10
+    adds x10, x10, #0x80
+    stur x10, [x1]
+    ret
+
     .size   unicode_to_UTF8, .-unicode_to_UTF8
     // ... and ends with the .size above this line.
 
