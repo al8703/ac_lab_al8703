@@ -283,7 +283,7 @@ unicode_to_UTF8:
     movk x11, #0x3F
     ands x11, x0, x11
     adds x11, x11, #0x80
-    sturx x11, [x1]
+    stur x11, [x1]
      ldur x2, [x1]
     subs x1, x1, #3
    
