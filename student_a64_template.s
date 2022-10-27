@@ -355,7 +355,7 @@ gcd_rec:
 
     .div: 
     subs x10, x1, x0
-    b.le .addB1:
+    b.le .addB1
     subs x1, x1, x0
     b .rec
 
