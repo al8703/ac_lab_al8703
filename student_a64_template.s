@@ -372,13 +372,13 @@ gcd_rec:
     b.eq .fin1
     movz x3, #0
     lsl x3, x3, #63
-    ands x3, x3, x1
+    add x3, x3, x1
     movz x1, #0
     lsl x1, x1, #63
-    ands x1, x1, x0
+    add x1, x1, x0
     movz x0, #0
     lsl x0,x0, #63
-    ands x0, x0, x3
+    add x0, x0, x3
     b .rec
 
     .fin1:
