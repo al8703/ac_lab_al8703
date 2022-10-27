@@ -382,12 +382,12 @@ gcd_rec:
     b .div
 
     .fin1:
-    movz x0, #0
-    lsl x0, x0, #63
-    ands x0, x0, x1
     ret
     
-   .fin2:  
+   .fin2:
+    movz x0, #0
+    lsl x0, x0, #63
+    ands x0, x0, x1  
     ret
 
     .size   gcd_rec, .-gcd_rec
