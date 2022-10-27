@@ -345,7 +345,7 @@ gcd_rec:
     movz x2, #0
     movz x3, #0
     movz x10, #0
-    movk x9, #0
+    movz x9, #0
     adds x3, x0, #0
     b.eq .zero
     adds x3, x1, #0
