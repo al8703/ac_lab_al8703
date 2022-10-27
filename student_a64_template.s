@@ -358,7 +358,7 @@ gcd_rec:
 
     .div:
     subs x10, x1,x0
-    b.ltu .addB1
+    b.lt .addB1
     adds x9, x9, #1
     subs x1, x1, x0
     b.eq .fin1
