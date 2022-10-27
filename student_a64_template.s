@@ -358,27 +358,29 @@ gcd_rec:
 
     .div:
     subs x10, x1,x0
-    b.lt .div2
+    b.le .addB1
     //adds x9, x9, #1
     subs x1, x1, x0
-   b.eq .fin1
+   //b.eq .fin1
    b .div
     
 
     .addB1:
-    add x1, x1, x0
+    adds x10, x10,#0
+    b.eq .fin1
     b .div2
 
     .div2:
    subs x10, x0,x1
-    b.lt .div
+    b.le .div
    // adds x9, x9, #1
     subs x0, x0, x1
-    b.eq .fin2
+    //b.eq .fin2
     b .div2
 
     .addB:
-    adds x0, x0, x1
+    adds x10, x10, #0
+    b.eq .fin2
     b .div
 
     .fin1:
