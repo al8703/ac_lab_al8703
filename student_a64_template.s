@@ -344,6 +344,7 @@ gcd_rec:
 
     movz x2, #0
     movz x3, #0
+    movz x10, #0
     movk x9, #0
     adds x3, x0, #0
     b.eq .zero
@@ -356,23 +357,24 @@ gcd_rec:
     ret
 
     .div:
-    subs x0, x0, x1
-    b.lt .addB1
-    adds x1, x1, #0
-    b.eq .fin1
+    subs x10, x0,x1
+    b.mi .addB1
     adds x9, x9, #1
+    subs x0, x0, x1
+    b.eq .fin1
     b .div
+    
 
     .addB1:
     adds x0, x0, x1
     b .div2
 
     .div2:
-    subs x1, x1, x0
-    b.lt .addB
-    adds x1, x1, #0
-    b.eq .fin2
+   subs x10, x1,x0
+    b.mi .addB
     adds x9, x9, #1
+    subs x0, x0, x1
+    b.eq .fin2
     b .div2
 
     .addB:
