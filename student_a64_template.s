@@ -357,20 +357,20 @@ gcd_rec:
     ret
 
     .div:
-    subs x10, x0,x1
+    subs x10, x1,x0
     b.mi .addB1
     adds x9, x9, #1
-    subs x0, x0, x1
+    subs x1, x1, x0
     b.eq .fin1
     b .div
     
 
     .addB1:
-    adds x0, x0, x1
+    adds x1, x1, x0
     b .div2
 
     .div2:
-   subs x10, x1,x0
+   subs x10, x0,x1
     b.mi .addB
     adds x9, x9, #1
     subs x0, x0, x1
@@ -378,20 +378,17 @@ gcd_rec:
     b .div2
 
     .addB:
-    adds x1, x1, x0
+    adds x0, x0, x1
     b .div
 
     .fin1:
-    movz x0, #0
-    ands x0, x0, x1
     ret
     
    .fin2:  
+    movz x0, #0
+    ands x0, x0, x1
     ret
 
-    
-    
-    ret
     .size   gcd_rec, .-gcd_rec
     // ... and ends with the .size above this line.
 
