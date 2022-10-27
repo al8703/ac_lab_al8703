@@ -383,6 +383,7 @@ gcd_rec:
 
     .fin1:
     movz x0, #0
+    lsl x0, x0, #63
     ands x0, x0, x1
     ret
     
