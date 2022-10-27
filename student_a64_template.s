@@ -342,10 +342,8 @@ gcd_rec:
     // Input parameter m is passed in X0; input parameter n is passed in X1.
     // Output value is returned in X0.
 
-    movz x2, #0
     movz x3, #0
     movz x10, #0
-    movz x9, #0
     adds x3, x0, #0
     b.eq .zero
     adds x3, x1, #0
@@ -359,12 +357,9 @@ gcd_rec:
     .div:
     subs x10, x1,x0
     b.le .addB1
-    //adds x9, x9, #1
     subs x1, x1, x0
-   //b.eq .fin1
    b .div
     
-
     .addB1:
     adds x10, x10,#0
     b.eq .fin1
@@ -373,9 +368,7 @@ gcd_rec:
     .div2:
    subs x10, x0,x1
     b.le .div
-   // adds x9, x9, #1
     subs x0, x0, x1
-    //b.eq .fin2
     b .div2
 
     .addB:
@@ -404,7 +397,52 @@ gcd_iter:
     // (STUDENT TODO) Code for gcd_iter goes here.
     // Input parameter m is passed in X0; input parameter n is passed in X1.
     // Output value is returned in X0.
+
+
+
+    movz x3, #0
+    movz x10, #0
+    adds x3, x0, #0
+    b.eq .zero
+    adds x3, x1, #0
+    b.eq .zero
+    b .div
+
+    .zero:
+    movz x0, #0
     ret
+
+    .div:
+    subs x10, x1,x0
+    b.le .addB1
+    subs x1, x1, x0
+   b .div
+    
+    .addB1:
+    adds x10, x10,#0
+    b.eq .fin1
+    b .div2
+
+    .div2:
+   subs x10, x0,x1
+    b.le .div
+    subs x0, x0, x1
+    b .div2
+
+    .addB:
+    adds x10, x10, #0
+    b.eq .fin2
+    b .div
+
+    .fin1:
+    ret
+    
+   .fin2:
+    movz x0, #0
+    lsl x0, x0, #63
+    ands x0, x0, x1  
+    ret
+    
     .size   gcd_iter, .-gcd_iter
     // ... and ends with the .size above this line.
 
