@@ -403,46 +403,46 @@ gcd_iter:
     movz x3, #0
     movz x10, #0
     adds x3, x0, #0
-    b.eq .zero
+    b.eq .zeros
     adds x3, x1, #0
-    b.eq .zero
-    b .div
+    b.eq .zeros
+    b .divd
 
-    .zero:
+    .zeros:
     movz x0, #0
     ret
 
-    .div:
+    .divd:
     subs x10, x1,x0
     b.le .addB1
     subs x1, x1, x0
-   b .div
+   b .divd
     
-    .addB1:
+    .add1:
     adds x10, x10,#0
-    b.eq .fin1
-    b .div2
+    b.eq .fini1
+    b .divd2
 
-    .div2:
+    .divd2:
    subs x10, x0,x1
-    b.le .div
+    b.le .divd
     subs x0, x0, x1
-    b .div2
+    b .divd2
 
-    .addB:
+    .add:
     adds x10, x10, #0
-    b.eq .fin2
-    b .div
+    b.eq .fini2
+    b .divd
 
-    .fin1:
+    .fini1:
     ret
     
-   .fin2:
+   .fini2:
     movz x0, #0
     lsl x0, x0, #63
     ands x0, x0, x1  
     ret
-    
+
     .size   gcd_iter, .-gcd_iter
     // ... and ends with the .size above this line.
 
